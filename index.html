@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechWorld - strona o komputerach, technologii i grach">
+  <title>TechWorld</title>
+
+  <!-- Import czcionki Orbitron z Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Import pliku stylów CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nagłówek strony z logo i nawigacją -->
+  <header>
+    <div class="logo">
+      <!-- Logo w formacie SVG z gradientem -->
+      <svg width="140" height="40" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="55" font-family="Orbitron" font-size="48" fill="url(#grad1)">TechWorld</text>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#ff00ff" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Menu nawigacyjne -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="temat1.html">Gry</a></li>
+        <li><a href="temat2.html">Mój komputer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Główna treść strony -->
+  <main>
+    <!-- Wprowadzenie / prezentacja zainteresowań -->
+    <section class="intro">
+      <h1>Witamy w TechWorld</h1>
+      <p>Tutaj znajdziesz wszystko o komputerach, technologii i grach wideo. Artykuły, składanie PC, testy, quizy i wiele więcej!</p>
+    </section>
+    
+    <!-- Tabela z harmonogramem grania -->
+    <section class="table-section">
+      <h2>Harmonogram tygodniowy grania</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dzień</th>
+            <th>Gra</th>
+            <th>Czas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Poniedziałek</td>
+            <td>League of Legends</td>
+            <td>18:00 - 20:00</td>
+          </tr>
+          <tr>
+            <td>Wtorek</td>
+            <td>Valorant</td>
+            <td>19:00 - 21:00</td>
+          </tr>
+          <tr>
+            <td>Środa</td>
+            <td>Minecraft</td>
+            <td>16:00 - 18:00</td>
+          </tr>
+          <tr>
+            <td>Czwartek</td>
+            <td>CS2</td>
+            <td>17:00 - 19:00</td>
+          </tr>
+          <tr>
+            <td>Piątek</td>
+            <td>GTA V</td>
+            <td>20:00 - 23:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <!-- Galeria zdjęć z miniaturkami -->
+    <section class="gallery">
+      <h2>Galeria</h2>
+      <div class="gallery-container">
+        <img src="https://via.placeholder.com/300" alt="Zdjęcie 1" class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Zdjęcie 2" class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Zdjęcie 3" class="gallery-item">
+      </div>
+    </section>
+
+    <!-- Wideo z YouTube -->
+    <section class="video">
+      <h2>Film o tym jak zbudować komputer</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/NM_g7C74DZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <!-- Stopka strony -->
+  <footer>
+    <p>&copy; 2025 TechWorld. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Import pliku JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

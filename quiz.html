@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechWorld - quiz o komputerach, technologii i grach">
+  <title>Quiz - TechWorld</title>
+  <!-- Czcionka (Orbitron) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* Podstawowy styl dla całej strony */
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif; /* Nowoczesna czcionka */
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Gradientowy tło */
+      color: #ffffff; /* Kolor tekstu */
+      transition: background 0.5s, color 0.5s; /* Animacja dla zmiany tła i koloru tekstu */
+    }
+
+    /* Styl dla nagłówka */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8); /* Ciemne tło nagłówka */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cień pod nagłówkiem */
+    }
+
+    /* Styl dla nawigacji */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Linki nawigacyjne */
+    nav a {
+      text-decoration: none;
+      color: #00f0ff; /* Niebieski kolor linków */
+      font-weight: bold;
+      transition: color 0.3s; /* Animacja zmiany koloru */
+    }
+
+    /* Efekt na hover dla linków */
+    nav a:hover {
+      color: #ff00ff; /* Różowy kolor przy najechaniu */
+    }
+
+    /* Styl quizu */
+    .quiz {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7); /* Ciemne tło quizu */
+      border-radius: 10px; /* Zaokrąglone rogi */
+      max-width: 800px;
+      margin: 3rem auto; /* Centrowanie quizu */
+    }
+
+    /* Styl tytułu quizu */
+    .quiz h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Styl dla pytań */
+    .question {
+      margin: 2rem 0;
+      font-size: 1.2rem;
+    }
+
+    /* Styl dla przycisku */
+    button {
+      background: #00f0ff; /* Niebieski kolor przycisku */
+      color: black;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer; /* Kursor wskazujący na kliknięcie */
+      transition: background 0.3s; /* Animacja zmiany koloru tła */
+    }
+
+    /* Efekt na hover dla przycisku */
+    button:hover {
+      background: #00bcd4; /* Jaśniejszy niebieski przy najechaniu */
+    }
+
+    /* Styl dla wyniku */
+    #result {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* Przycisk zmiany trybu */
+    .toggle-theme {
+      position: absolute;
+      top: 5rem;
+      right: 1rem;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    /* Styl dla trybu jasnego */
+    body.light-mode {
+      background: linear-gradient(to right, #ffffff, #e3e3e3); /* Jasne tło */
+      color: #000000; /* Czarny tekst w trybie jasnym */
+    }
+
+    /* Styl dla linków w trybie jasnym */
+    body.light-mode nav a {
+      color: #0000ff; /* Niebieski kolor linków w trybie jasnym */
+    }
+
+    /* Efekt hover w trybie jasnym */
+    body.light-mode nav a:hover {
+      color: #ff0080; /* Różowy kolor przy najechaniu */
+    }
+
+    /* Styl dla przycisku zmiany trybu w trybie jasnym */
+    body.light-mode .toggle-theme {
+      background: #0000ff; /* Niebieski przycisk w trybie jasnym */
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Nagłówek strony -->
+  <header>
+    <div class="logo">
+      <!-- Logo (SVG) -->
+      <svg width="140" height="40" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="55" font-family="Orbitron" font-size="48" fill="url(#grad1)">TechWorld</text>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#ff00ff" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <nav>
+      <!-- Nawigacja (menu) -->
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="temat1.html">Gry</a></li>
+        <li><a href="temat2.html">Mój komputer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Główna część quizu -->
+  <main>
+    <section class="quiz">
+      <h1>Quiz o komputerach i grach</h1>
+      <form id="quiz-form">
+<!-- Pytanie 1: Najwydajniejszy procesor -->
+<div class="question">
+    <p>1. Jaki procesor jest najwydajniejszy?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o najwydajniejszy procesor -->
+    <label><input type="radio" name="q1" value="a"> Intel i9</label><br>
+    <label><input type="radio" name="q1" value="b"> AMD Ryzen 9</label><br>
+    <label><input type="radio" name="q1" value="c"> Intel i7</label><br>
+</div>
+
+<!-- Pytanie 2: Najlepsza grafika w grze -->
+<div class="question">
+    <p>2. Która gra ma najlepszą grafikę?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o najlepszą grafikę -->
+    <label><input type="radio" name="q2" value="a"> The Witcher 3</label><br>
+    <label><input type="radio" name="q2" value="b"> Crysis 3</label><br>
+    <label><input type="radio" name="q2" value="c"> Red Dead Redemption 2</label><br>
+</div>
+
+<!-- Pytanie 3: Co oznacza skrót GPU -->
+<div class="question">
+    <p>3. Co oznacza skrót GPU?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o znaczenie skrótu GPU -->
+    <label><input type="radio" name="q3" value="a"> General Processing Unit</label><br>
+    <label><input type="radio" name="q3" value="b"> Graphics Processing Unit</label><br>
+    <label><input type="radio" name="q3" value="c"> General Public Unit</label><br>
+</div>
+
+<!-- Pytanie 4: Najbardziej popularny system operacyjny -->
+<div class="question">
+    <p>4. Jaki system operacyjny jest najbardziej popularny?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o najpopularniejszy system operacyjny -->
+    <label><input type="radio" name="q4" value="a"> Windows</label><br>
+    <label><input type="radio" name="q4" value="b"> macOS</label><br>
+    <label><input type="radio" name="q4" value="c"> Linux</label><br>
+</div>
+
+<!-- Pytanie 5: Najnowsze GTA -->
+<div class="question">
+    <p>5. Jakie jest najnowsze GTA?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o najnowszą wersję GTA -->
+    <label><input type="radio" name="q5" value="a"> GTA 4</label><br>
+    <label><input type="radio" name="q5" value="b"> GTA V</label><br>
+    <label><input type="radio" name="q5" value="c"> GTA VI</label><br>
+</div>
+
+<!-- Pytanie 6: Procesor z największą liczbą rdzeni -->
+<div class="question">
+    <p>6. Który z tych procesorów posiada największą liczbę rdzeni?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o procesor z największą liczbą rdzeni -->
+    <label><input type="radio" name="q6" value="a"> Intel i9-12900K</label><br>
+    <label><input type="radio" name="q6" value="b"> AMD Ryzen 9 5950X</label><br>
+    <label><input type="radio" name="q6" value="c"> Intel i7-11700K</label><br>
+</div>
+
+<!-- Pytanie 7: Najlepsze gry na PC -->
+<div class="question">
+    <p>7. Jakie gry są najlepsze na PC?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o najlepsze gry na PC -->
+    <label><input type="radio" name="q7" value="a"> Platformówki</label><br>
+    <label><input type="radio" name="q7" value="b"> Gry FPS</label><br>
+    <label><input type="radio" name="q7" value="c"> RPG</label><br>
+</div>
+
+<!-- Pytanie 8: Co to jest VR? -->
+<div class="question">
+    <p>8. Co to jest VR?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o VR -->
+    <label><input type="radio" name="q8" value="a"> Virtual Reality</label><br>
+    <label><input type="radio" name="q8" value="b"> Virtual Robot</label><br>
+    <label><input type="radio" name="q8" value="c"> Video Recorder</label><br>
+</div>
+
+<!-- Pytanie 9: Producent kart graficznych GTX -->
+<div class="question">
+    <p>9. Która firma produkuje kartę graficzną GTX?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o producenta kart GTX -->
+    <label><input type="radio" name="q9" value="a"> AMD</label><br>
+    <label><input type="radio" name="q9" value="b"> Intel</label><br>
+    <label><input type="radio" name="q9" value="c"> Nvidia</label><br>
+</div>
+
+<!-- Pytanie 10: Producent procesorów Ryzen -->
+<div class="question">
+    <p>10. Która firma produkuje procesory Ryzen?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o producenta procesorów Ryzen -->
+    <label><input type="radio" name="q10" value="a"> Intel</label><br>
+    <label><input type="radio" name="q10" value="b"> AMD</label><br>
+    <label><input type="radio" name="q10" value="c"> Qualcomm</label><br>
+</div>
+
+<!-- Pytanie 11: Karta graficzna z największą ilością pamięci VRAM -->
+<div class="question">
+    <p>11. Która karta graficzna ma najwięcej pamięci VRAM?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o kartę graficzną z największą ilością VRAM -->
+    <label><input type="radio" name="q11" value="a"> Nvidia GTX 1080</label><br>
+    <label><input type="radio" name="q11" value="b"> Nvidia RTX 3090</label><br>
+    <label><input type="radio" name="q11" value="c"> AMD Radeon RX 6800 XT</label><br>
+</div>
+
+<!-- Pytanie 12: Co to jest overclocking? -->
+<div class="question">
+    <p>12. Co to jest overclocking?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o overclocking -->
+    <label><input type="radio" name="q12" value="a"> Zwiększenie wydajności komponentów</label><br>
+    <label><input type="radio" name="q12" value="b"> Zmniejszenie poboru energii</label><br>
+    <label><input type="radio" name="q12" value="c"> Zmiana systemu operacyjnego</label><br>
+</div>
+
+<!-- Pytanie 13: Rok powstania pierwszego komputera osobistego -->
+<div class="question">
+    <p>13. Kiedy powstał pierwszy komputer osobisty?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o rok powstania pierwszego komputera osobistego -->
+    <label><input type="radio" name="q13" value="a"> 1985</label><br>
+    <label><input type="radio" name="q13" value="b"> 1975</label><br>
+    <label><input type="radio" name="q13" value="c"> 1995</label><br>
+</div>
+
+<!-- Pytanie 14: Twórca systemu Windows -->
+<div class="question">
+    <p>14. Kto jest twórcą systemu operacyjnego Windows?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o twórcę systemu Windows -->
+    <label><input type="radio" name="q14" value="a"> Bill Gates</label><br>
+    <label><input type="radio" name="q14" value="b"> Steve Jobs</label><br>
+    <label><input type="radio" name="q14" value="c"> Linus Torvalds</label><br>
+</div>
+
+<!-- Pytanie 15: Co to jest RAM? -->
+<div class="question">
+    <p>15. Co to jest RAM?</p>
+    <!-- Opcje wyboru odpowiedzi na pytanie o RAM -->
+    <label><input type="radio" name="q15" value="a"> Pamięć stała</label><br>
+    <label><input type="radio" name="q15" value="b"> Pamięć operacyjna</label><br>
+    <label><input type="radio" name="q15" value="c"> Pamięć zewnętrzna</label><br>
+</div>
+
+
+        <!-- Przycisk końcowy -->
+        <button type="submit">Zakończ Quiz</button>
+      </form>
+
+      <!-- Wynik -->
+      <div id="result" style="display: none;">
+        <h2>Twój wynik:</h2>
+        <p id="score"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Stopka -->
+  <footer>
+    <p>&copy; 2025 TechWorld. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Skrypt JS do obsługi quizu i zmiany trybu -->
+  <script>
+    // Obsługuje zdarzenie wysyłania formularza
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Zapobiega przeładowaniu strony
+
+        let score = 0; // Wynik początkowy
+
+        // Poprawne odpowiedzi
+        const answers = {
+                q1: 'b',  
+                q2: 'c',  
+                q3: 'b',
+                q4: 'a',
+                q5: 'c',
+                q6: 'b',
+                q7: 'b',
+                q8: 'a',
+                q9: 'c',
+                q10: 'b',
+                q11: 'b',
+                q12: 'a',
+                q13: 'b',
+                q14: 'a',
+                q15: 'b'
+        };
+
+        // Sprawdzanie odpowiedzi
+        for (let question in answers) {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            if (selected && selected.value === answers[question]) {
+                score++; // Jeśli odpowiedź poprawna, zwiększamy wynik
+            }
+        }
+
+        // Wyświetlenie wyniku
+        document.getElementById('score').textContent = `Twoje punkty: ${score} / 15`;
+        document.getElementById('result').style.display = 'block'; // Pokazanie wyniku
+    });
+
+    // Przycisk do zmiany trybu ciemnego/jasnego
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'toggle-theme';
+    toggleButton.textContent = 'Tryb jasny';
+    document.body.appendChild(toggleButton);
+
+    // Zdarzenie kliknięcia zmienia tryb
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+            toggleButton.textContent = 'Tryb ciemny';
+        } else {
+            toggleButton.textContent = 'Tryb jasny';
+        }
+    });
+  </script>
+</body>
+</html>

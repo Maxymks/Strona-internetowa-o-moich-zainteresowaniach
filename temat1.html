@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechWorld - wszystkie informacje o grach komputerowych">
+  <title>Gry - TechWorld</title>
+  <!-- Czcionka Orbitron, którą wykorzystujemy w projekcie -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* Globalne style dla ciała strony */
+    body {
+      font-family: 'Orbitron', sans-serif; /* Użycie czcionki Orbitron */
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Gradientowe tło */
+      color: white; /* Biały tekst */
+      margin: 0; /* Usunięcie marginesów */
+      transition: background 0.5s, color 0.5s; /* Płynna zmiana tła i koloru */
+    }
+
+    /* Styl dla nagłówka */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8); /* Ciemne tło nagłówka */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cień pod nagłówkiem */
+    }
+
+    /* Styl dla menu nawigacyjnego */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    /* Styl linków w menu */
+    nav a {
+      text-decoration: none;
+      color: #00f0ff; /* Niebieski kolor tekstu */
+      font-weight: bold;
+      transition: color 0.3s; /* Animacja dla zmiany koloru */
+    }
+
+    /* Efekt hover dla linków */
+    nav a:hover {
+      color: #ff00ff; /* Różowy kolor przy najechaniu */
+    }
+
+    /* Główna sekcja zawartości */
+    main {
+      padding: 3rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.7); /* Ciemne tło sekcji */
+      border-radius: 10px; /* Zaokrąglone rogi */
+    }
+
+    /* Styl tytułu w głównej sekcji */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Styl dla treści (tekst) */
+    .content {
+      font-size: 1.1rem;
+      line-height: 1.8; /* Wysokość linii tekstu */
+    }
+
+    /* Styl stopki */
+    footer {
+      background: rgba(0, 0, 0, 0.8); /* Ciemne tło stopki */
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Przycisk do zmiany trybu ciemnego/jasnego */
+    .toggle-theme {
+      position: absolute;
+      top: 5rem;
+      right: 1rem;
+      background: #00f0ff; /* Niebieski kolor przycisku */
+      color: #000; /* Czarny tekst przycisku */
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px; /* Zaokrąglone rogi przycisku */
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 999; /* Przycisk zawsze na wierzchu */
+    }
+
+    /* Styl dla trybu jasnego */
+    body.light-mode {
+      background: linear-gradient(to right, #ffffff, #e3e3e3); /* Jasne tło */
+      color: #000000; /* Czarny tekst */
+    }
+
+    /* Styl linków w trybie jasnym */
+    body.light-mode nav a {
+      color: #0000ff; /* Niebieski kolor linków */
+    }
+
+    /* Efekt hover dla linków w trybie jasnym */
+    body.light-mode nav a:hover {
+      color: #ff0080; /* Różowy kolor przy najechaniu */
+    }
+
+    /* Styl przycisku w trybie jasnym */
+    body.light-mode .toggle-theme {
+      background: #0000ff; /* Niebieski przycisk w trybie jasnym */
+      color: #fff; /* Biały tekst przycisku */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nagłówek z nawigacją -->
+  <header>
+    <div class="logo">
+      <!-- Logo w postaci SVG -->
+      <svg width="140" height="40" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="55" font-family="Orbitron" font-size="48" fill="url(#grad1)">TechWorld</text>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#ff00ff" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="temat1.html">Gry</a></li>
+        <li><a href="temat2.html">Mój komputer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sekcja główna z treścią o grach -->
+  <main>
+    <h1>Gry komputerowe</h1>
+    <div class="content">
+      <p>W tej sekcji opowiem o najbardziej popularnych grach komputerowych, które zdominowały rynek przez ostatnią dekadę. Główne tematy, które omówię, to:</p>
+      <ul>
+        <li>Gry MMORPG</li>
+        <li>Gry FPS</li>
+        <li>Gry Indie</li>
+        <li>Trendy w grach wideo w 2025 roku</li>
+      </ul>
+      <p>Każdy z tych gatunków ma swoje unikalne cechy i fascynujących graczy, którzy tworzą wokół nich ogromne społeczności. W tej sekcji dowiesz się, jakie są największe tytuły, które warto poznać, i jak technologia kształtuje przyszłość gier.</p>
+    </div>
+  </main>
+
+  <!-- Przycisk do zmiany trybu jasnego/ciemnego -->
+  <button class="toggle-theme">Tryb jasny / ciemny</button>
+
+  <!-- Stopka -->
+  <footer>
+    <p>&copy; 2025 TechWorld. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Skrypt JavaScript do przełączania trybów -->
+  <script>
+    // Funkcja do przełączania trybu ciemnego/jasnego
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('light-mode'); // Przełącza klasę 'light-mode' na ciele strony
+    });
+  </script>
+
+</body>
+</html>

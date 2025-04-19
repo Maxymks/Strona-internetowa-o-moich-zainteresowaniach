@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Formularz kontaktowy TechWorld">
+  <title>Kontakt - TechWorld</title>
+
+  <!-- Import czcionki Orbitron z Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* Ogólne ustawienia wyglądu strony */
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* Styl nagłówka i stopki */
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    /* Styl menu nawigacyjnego */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #00f0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    /* Kontener formularza */
+    .form-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Pola formularza */
+    label, input, textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 6px;
+    }
+
+    /* Przycisk wyślij */
+    button {
+      background: #00f0ff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff00ff;
+      color: #fff;
+    }
+
+    /* Przycisk przełączania motywu */
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    /* Styl dla jasnego motywu */
+    body.light-mode {
+      background: linear-gradient(to right, #ffffff, #e3e3e3);
+      color: #000000;
+    }
+
+    body.light-mode nav a {
+      color: #0000ff;
+    }
+
+    body.light-mode nav a:hover {
+      color: #ff0080;
+    }
+
+    body.light-mode .toggle-theme {
+      background: #0000ff;
+      color: #fff;
+    }
+
+    /* Styl komunikatów o błędach */
+    .error {
+      color: red;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Przycisk przełączania motywu jasny/ciemny -->
+  <button class="toggle-theme">Tryb jasny / ciemny</button>
+
+  <!-- Nagłówek z logo SVG oraz nawigacją -->
+  <header>
+    <svg width="140" height="40" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="55" font-family="Orbitron" font-size="48" fill="url(#grad1)">TechWorld</text>
+      <defs>
+        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#00f0ff" />
+          <stop offset="100%" stop-color="#ff00ff" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <!-- Menu nawigacyjne -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="temat1.html">Gry</a></li>
+        <li><a href="temat2.html">Mój komputer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Główna zawartość strony -->
+  <main>
+    <section class="form-container">
+      <h1>Formularz kontaktowy</h1>
+      <!-- Formularz kontaktowy -->
+      <form id="contactForm">
+        <label for="name">Imię i nazwisko:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Adres e-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Wyślij</button>
+      </form>
+
+      <!-- Miejsce na komunikat po przesłaniu formularza -->
+      <p id="feedback" class="error"></p>
+    </section>
+  </main>
+
+  <!-- Stopka strony -->
+  <footer>
+    <p>&copy; 2025 TechWorld. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Skrypt JavaScript -->
+  <script>
+    // Obsługa przycisku zmiany motywu jasny/ciemny
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    // Walidacja formularza po kliknięciu "Wyślij"
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // Zatrzymuje domyślne wysyłanie formularza
+
+      // Pobranie danych z pól formularza
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const feedback = document.getElementById('feedback');
+
+      // Sprawdzenie długości imienia
+      if (name.length < 3) {
+        feedback.textContent = 'Imię jest za krótkie.';
+        feedback.style.color = 'red';
+        return;
+      }
+
+      // Sprawdzenie poprawności e-maila
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        feedback.textContent = 'Nieprawidłowy adres e-mail.';
+        feedback.style.color = 'red';
+        return;
+      }
+
+      // Sprawdzenie długości wiadomości
+      if (message.length < 10) {
+        feedback.textContent = 'Wiadomość powinna zawierać przynajmniej 10 znaków.';
+        feedback.style.color = 'red';
+        return;
+      }
+
+      // Komunikat o powodzeniu i reset formularza
+      feedback.textContent = 'Wiadomość została wysłana!';
+      feedback.style.color = 'lime';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechWorld - wszystko o moim komputerze, komponentach i konfiguracjach">
+  <title>Mój komputer - TechWorld</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* Ogólny styl strony */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Tło z gradientem */
+      color: white; /* Kolor tekstu - biały */
+      margin: 0; /* Brak marginesów */
+      transition: background 0.5s, color 0.5s; /* Płynna zmiana tła i koloru tekstu */
+    }
+
+    /* Styl nagłówka */
+    header {
+      display: flex;
+      justify-content: space-between; /* Rozmieszczenie elementów po bokach */
+      align-items: center;
+      padding: 1rem 2rem; /* Wewnętrzne marginesy nagłówka */
+      background-color: rgba(0, 0, 0, 0.8); /* Czarne, półprzezroczyste tło */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cień nagłówka */
+    }
+
+    /* Styl menu nawigacyjnego */
+    nav ul {
+      list-style: none; /* Usunięcie punktów listy */
+      display: flex;
+      gap: 2rem; /* Odstępy pomiędzy elementami menu */
+    }
+
+    nav a {
+      text-decoration: none; /* Usunięcie podkreślenia */
+      color: #00f0ff; /* Kolor linków - niebieski */
+      font-weight: bold; /* Pogrubienie tekstu */
+      transition: color 0.3s; /* Płynna zmiana koloru */
+    }
+
+    /* Efekt najechania na link */
+    nav a:hover {
+      color: #ff00ff; /* Zmiana koloru na różowy po najechaniu */
+    }
+
+    /* Styl głównej treści strony */
+    main {
+      padding: 3rem;
+      max-width: 900px; /* Maksymalna szerokość kontenera */
+      margin: 2rem auto; /* Automatyczne marginesy z góry i dołu */
+      background: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło */
+      border-radius: 10px; /* Zaokrąglone rogi */
+    }
+
+    h1 {
+      font-size: 2.5rem; /* Rozmiar czcionki nagłówka */
+      margin-bottom: 1rem; /* Margines dolny */
+      text-align: center; /* Wyśrodkowanie tekstu */
+    }
+
+    /* Styl treści */
+    .content {
+      font-size: 1.1rem;
+      line-height: 1.8; /* Wysokość linii */
+    }
+
+    /* Styl listy komponentów komputera */
+    .component-list {
+      list-style: none; /* Usunięcie punktów listy */
+      padding: 0; /* Usunięcie wewnętrznych marginesów */
+    }
+
+    .component-list li {
+      margin-bottom: 1rem; /* Margines dolny dla każdego elementu listy */
+      font-size: 1.2rem; /* Rozmiar czcionki */
+    }
+
+    /* Nowy styl dla podświetlenia tekstu */
+    .highlight {
+      color: #ff00ff; /* Jasny różowy kolor dla podświetlenia */
+      font-weight: bold; /* Pogrubienie tekstu */
+    }
+
+    /* Styl stopki */
+    footer {
+      background: rgba(0, 0, 0, 0.8); /* Półprzezroczyste tło */
+      text-align: center; /* Wyśrodkowanie tekstu */
+      padding: 1rem; /* Wewnętrzne marginesy */
+      margin-top: 2rem; /* Margines górny */
+    }
+
+    /* Styl przycisku zmiany trybu */
+    .toggle-theme {
+      position: absolute;
+      top: 5rem;
+      right: 1rem;
+      background: #00f0ff; /* Niebieskie tło */
+      color: #000; /* Czarny kolor tekstu */
+      border: none; /* Brak obramowania */
+      padding: 0.5rem 1rem; /* Wewnętrzne marginesy */
+      border-radius: 8px; /* Zaokrąglone rogi */
+      cursor: pointer; /* Wskaźnik kursora na przycisku */
+      font-weight: bold; /* Pogrubienie tekstu */
+      z-index: 999; /* Wyższy priorytet w stosunku do innych elementów */
+    }
+
+    /* Styl trybu jasnego */
+    body.light-mode {
+      background: linear-gradient(to right, #ffffff, #e3e3e3); /* Tło w trybie jasnym */
+      color: #000000; /* Kolor tekstu - czarny */
+    }
+
+    body.light-mode nav a {
+      color: #0000ff; /* Kolor linków w trybie jasnym */
+    }
+
+    body.light-mode nav a:hover {
+      color: #ff0080; /* Kolor linków po najechaniu w trybie jasnym */
+    }
+
+    body.light-mode .toggle-theme {
+      background: #0000ff; /* Tło przycisku w trybie jasnym */
+      color: #fff; /* Kolor tekstu przycisku w trybie jasnym */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nagłówek z nawigacją -->
+  <header>
+    <div class="logo">
+      <svg width="140" height="40" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="55" font-family="Orbitron" font-size="48" fill="url(#grad1)">TechWorld</text>
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#ff00ff" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="temat1.html">Gry</a></li>
+        <li><a href="temat2.html">Mój komputer</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Główna sekcja treści -->
+  <main>
+    <h1>Specyfikacja mojego komputera</h1>
+    <div class="content">
+      <p>Chciałbym podzielić się szczegółami mojego komputera, który używam do grania, pracy i codziennego użytku. Oto jego najważniejsze komponenty:</p>
+
+      <ul class="component-list">
+        <li><strong class="highlight">Procesor:</strong> Intel Core i5-7500</li>
+        <li><strong class="highlight">Oparty na:</strong> 4 rdzeniach i 4 wątkach, z częstotliwością bazową 3,4 GHz. Idealny do gier i pracy biurowej, chociaż już nieco starszy, nadal daje sobie radę z większością zadań.</li>
+
+        <li><strong class="highlight">Pamięć RAM:</strong> 16 GB DDR4</li>
+        <li><strong class="highlight">Wydajność:</strong> Pamięć RAM DDR4 umożliwia szybkie przełączanie się pomiędzy aplikacjami i płynne granie w nowoczesne gry. Jest wystarczająca do moich potrzeb, od edycji wideo po granie w wymagające gry.</li>
+
+        <li><strong class="highlight">Karta graficzna:</strong> NVIDIA GTX 1060 3 GB ASUS Phoenix</li>
+        <li><strong class="highlight">Opis:</strong> To karta graficzna z segmentu średniej klasy, doskonała do większości gier w rozdzielczości 1080p. GTX 1060 oferuje płynność w grach AAA i dobrze radzi sobie w VR. Jest to jedna z najlepszych kart w swojej klasie pod względem ceny do wydajności.</li>
+      </ul>
+
+      <p>Komponenty mojego komputera są dobrze dobrane do grania w gry oraz do pracy kreatywnej, takich jak edycja wideo czy programowanie. Mam nadzieję, że wkrótce zaktualizuję go do nowszych podzespołów!</p>
+    </div>
+  </main>
+
+  <!-- Przycisk do zmiany trybu jasnego/ciemnego -->
+  <button class="toggle-theme">Tryb jasny / ciemny</button>
+
+  <!-- Stopka -->
+  <footer>
+    <p>&copy; 2025 TechWorld. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Skrypt do zmiany trybu -->
+  <script>
+    // Zmiana trybu po kliknięciu w przycisk
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+  </script>
+
+</body>
+</html>

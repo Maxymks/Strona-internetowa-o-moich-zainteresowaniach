@@ -1,0 +1,214 @@
+/* Styl ogólny strony */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif; /* Nowoczesna, cyfrowa czcionka */
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Gradientowe tło */
+    color: #ffffff; /* Biały tekst */
+    transition: background 0.5s, color 0.5s; /* Płynna zmiana kolorów (np. tryb jasny/ciemny) */
+}
+
+/* Nagłówek (header) */
+header {
+    display: flex; /* Ustawienie elementów obok siebie */
+    justify-content: space-between; /* Rozsunięcie elementów na lewo i prawo */
+    align-items: center; /* Wyśrodkowanie w pionie */
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Półprzezroczyste tło */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cień */
+}
+
+/* Nawigacja - lista linków */
+nav ul {
+    list-style: none; /* Usunięcie wypunktowania */
+    display: flex;
+    gap: 2rem; /* Odstęp między linkami */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styl linków w nawigacji */
+nav a {
+    text-decoration: none; /* Brak podkreślenia */
+    color: #00f0ff; /* Jasnoniebieski kolor */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Efekt najechania na link */
+nav a:hover {
+    color: #ff00ff; /* Różowy kolor przy najechaniu */
+}
+
+/* Sekcja powitalna */
+.intro {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* Tytuł powitalny */
+.intro h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Stopka strony */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Przycisk do przełączania trybu jasny/ciemny */
+.toggle-theme {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    background: #00f0ff;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 999; /* Zawsze na wierzchu */
+}
+
+/* Styl trybu jasnego */
+body.light-mode {
+    background: linear-gradient(to right, #ffffff, #e3e3e3);
+    color: #000000;
+}
+
+/* Kolory linków w trybie jasnym */
+body.light-mode nav a {
+    color: #0000ff;
+}
+
+body.light-mode nav a:hover {
+    color: #ff0080;
+}
+
+body.light-mode .toggle-theme {
+    background: #0000ff;
+    color: #fff;
+}
+
+/* Sekcja z filmem (YouTube) */
+.video {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.video iframe {
+    max-width: 100%;
+    margin-top: 1rem;
+}
+
+.video h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Galeria zdjęć */
+.gallery {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* Dopasowanie zdjęcia bez zniekształceń */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1); /* Powiększenie przy najechaniu */
+}
+
+/* Formularz kontaktowy */
+.form-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: rgba(255, 255, 255, 0.05); /* Jasna przeźroczystość */
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+/* Pola formularza */
+label, input, textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Inputy i textarea */
+input, textarea {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+}
+
+/* Przycisk formularza */
+button {
+    background: #00f0ff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff00ff;
+    color: #fff;
+}
+
+/* Sekcja z tabelą (harmonogram gier) */
+.table-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.table-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1rem;
+}
+
+/* Nagłówki tabeli */
+table th {
+    background-color: rgba(0, 240, 255, 0.2);
+    color: #00f0ff;
+    font-weight: bold;
+}
+
+/* Komórki tabeli */
+table td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
